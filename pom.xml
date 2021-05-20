@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.prateek.vaccineslotfinder</groupId>
+  <artifactId>vaccine-slot-finder</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <properties>
+	<java.version>1.8</java.version>
+  </properties>  
+  
+  <dependencies>
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.2</version>
+		</dependency>
+	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<!-- Optional URL to server. Default value is http://localhost:9000 -->
+				<sonar.host.url>
+					http://104.251.211.4:9000/
+				</sonar.host.url>
+			</properties>
+		</profile>
+	</profiles>  
+  
+  <modules>
+  	<module>vaccine-slot-finder-model</module>
+  	<module>vaccine-slot-finder-service</module>
+  	<module>vaccine-slot-finder-ui</module>
+  	<module>vaccine-slot-finder-utils</module>
+  	<module>vaccine-slot-finder-web</module>
+  </modules>
+  
+</project>
