@@ -1,5 +1,5 @@
 projectKey=com.prateek.vaccineslotfinder:vaccine-slot-finder
 serverUrl=http://104.251.211.4:9000
 dashboardUrl=http://104.251.211.4:9000/dashboard/index/com.prateek.vaccineslotfinder:vaccine-slot-finder
-ceTaskId=AXmIuTYlVZuSn8zqDkuZ
-ceTaskUrl=http://104.251.211.4:9000/api/ce/task?id=AXmIuTYlVZuSn8zqDkuZ
+ceTaskId=AXmIxlc_VZuSn8zqDkua
+ceTaskUrl=http://104.251.211.4:9000/api/ce/task?id=AXmIxlc_VZuSn8zqDkua

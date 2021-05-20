@@ -31,7 +31,14 @@ public class VaccineSlotFinderServiceImpl implements VaccineSlotFinderService {
 			url = url.replace("$DATE$", date);			
 			url = url.trim();
 			
-			String data =  Jsoup.connect(url).userAgent(AppStringUtils.USER_AGENT.getString()).ignoreContentType(true).execute().body();
+			//String data =  Jsoup.connect(url).userAgent(AppStringUtils.USER_AGENT.getString()).ignoreContentType(true).execute().body();
+			
+			String data = Jsoup.connect(url).header("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+			.header("accept-encoding", "gzip, deflate, br")
+			.header("accept-language", "en-GB,en-US;q=0.9,en;q=0.8")
+			.header("cache-control", "max-age=0")
+			.header("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36")
+			.ignoreContentType(true).execute().body();
 			
 			Gson gson = new Gson();
 			centersInfoList = gson.fromJson(data, Sessions.class);
@@ -40,9 +47,9 @@ public class VaccineSlotFinderServiceImpl implements VaccineSlotFinderService {
 			LOG.info(centersInfoList.toString());			
 			
 		}catch(IOException io) {
-			LOG.error(io.getCause().getMessage());
+			LOG.error(io.getMessage());						
 		}catch(Exception ex) {
-			LOG.error(ex.getCause().getMessage());
+			LOG.error(ex.getMessage());			
 		}
 		
 		return centersInfoList;
